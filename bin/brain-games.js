@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { interactiveGreeting } from '../src/cli.js';
+import interactiveGreeting from '../src/cli.js';
 
 interactiveGreeting();
