@@ -19,7 +19,7 @@ const round = (question, answer, score) => {
 
 const finish = (score, name) => {
   const msg = !score ? "Let's try again" : 'Congratulations';
-  console.log(`${msg}, ${name}!`);
+  console.log(`${msg}${name ? `, ${name}` : ''}!`);
 };
 
 const checkScore = (score) => score && score < maxScore;
