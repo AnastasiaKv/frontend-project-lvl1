@@ -4,18 +4,22 @@
 [![Actions Status](https://github.com/AnastasiaKv/frontend-project-lvl1/workflows/linter-check/badge.svg)](https://github.com/AnastasiaKv/frontend-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a2bad59061358c6576b0/maintainability)](https://codeclimate.com/github/AnastasiaKv/frontend-project-lvl1/maintainability)
 
-#### Instalation & 'brain-even' Demo
+- #### Instalation & 'brain-even' Demo
 
 [![asciicast](https://asciinema.org/a/4AhupeGxPq4KhdRPMvHGGRCfT.svg)](https://asciinema.org/a/4AhupeGxPq4KhdRPMvHGGRCfT)
 
-#### 'brain-calc' Demo
+- #### 'brain-calc' Demo
 
 [![asciicast](https://asciinema.org/a/ylVk29B39sN2ofFg5kZd7vdM2.svg)](https://asciinema.org/a/ylVk29B39sN2ofFg5kZd7vdM2)
 
-#### 'brain-gcd' Demo
+- #### 'brain-gcd' Demo
 
 [![asciicast](https://asciinema.org/a/UhbYvTgbvkJdMhACKZgCMrTWY.svg)](https://asciinema.org/a/UhbYvTgbvkJdMhACKZgCMrTWY)
 
-#### 'brain-progression' Demo
+- #### 'brain-progression' Demo
 
 [![asciicast](https://asciinema.org/a/R3Y4kbsIZzrf6VEv7itjmyUiU.svg)](https://asciinema.org/a/R3Y4kbsIZzrf6VEv7itjmyUiU)
+
+- #### 'brain-prime' Demo
+
+[![asciicast](https://asciinema.org/a/rsOj6QRIJCdKyjwcaHFGdkz6v.svg)](https://asciinema.org/a/rsOj6QRIJCdKyjwcaHFGdkz6v)
