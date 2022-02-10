@@ -24,7 +24,7 @@ const finish = (score, name) => {
 
 const checkScore = (score) => score && score < maxScore;
 
-const random = (range = 100) => Math.floor(Math.random() * range);
+const random = (max = 100, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 export {
   init,

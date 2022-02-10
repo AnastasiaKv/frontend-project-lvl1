@@ -6,9 +6,9 @@ const maxOperand1 = 10;
 const maxOperand2 = 20;
 
 const createExpression = () => [
-  game.random(maxOperand1 + 1),
-  game.random(maxOperand2 + 1),
-  operators[game.random(operators.length)],
+  game.random(maxOperand1),
+  game.random(maxOperand2),
+  operators[game.random(operators.length - 1)],
 ];
 const calcExpression = (ex) => {
   const [a, b, operator] = [...ex];

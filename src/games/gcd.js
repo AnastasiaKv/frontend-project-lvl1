@@ -4,9 +4,9 @@ const instruction = 'Find the greatest common divisor of given numbers.';
 const maxNumber1 = 30;
 const maxNumber2 = 100;
 
-const getNumbers = () => [game.random(maxNumber1 + 1), game.random(maxNumber2 + 1)];
+const getNumbers = () => [game.random(maxNumber1), game.random(maxNumber2)];
 const numbersToString = (nums) => `${nums[0]} ${nums[1]}`;
-const findGSD = (a, b) => (!b ? Math.abs(a) : findGSD(b, a % b));
+const findGSD = (a, b) => (!b ? a : findGSD(b, a % b));
 
 const gcdGame = (userName) => {
   let score = 0;
