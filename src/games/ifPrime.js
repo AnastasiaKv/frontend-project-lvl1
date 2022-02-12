@@ -1,4 +1,5 @@
-import * as game from '../index.js';
+import engine from '../index.js';
+import getRandom from '../helpers.js';
 
 const instruction = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -10,16 +11,9 @@ const ifPrime = (x) => {
   return true;
 };
 
-const ifPrimeGame = (userName) => {
-  let score = 0;
-  game.init(instruction);
-
-  do {
-    const num = game.random();
-    score = game.round(num, ifPrime(num) ? 'yes' : 'no', score);
-  } while (game.checkScore(score));
-
-  game.finish(score, userName);
+const generateRound = () => {
+  const num = getRandom();
+  return [num, ifPrime(num) ? 'yes' : 'no'];
 };
 
-export default ifPrimeGame;
+export default () => engine(instruction, generateRound);

@@ -1,18 +1,12 @@
-import * as game from '../index.js';
+import engine from '../index.js';
+import getRandom from '../helpers.js';
 
 const instruction = 'Answer "yes" if the number is even, otherwise answer "no".';
 const ifEvenNumber = (val) => (val % 2 ? 'no' : 'yes');
 
-const ifEvenGame = (userName) => {
-  let score = 0;
-  game.init(instruction);
-
-  do {
-    const num = game.random();
-    score = game.round(num, ifEvenNumber(num), score);
-  } while (game.checkScore(score));
-
-  game.finish(score, userName);
+const generateRound = () => {
+  const num = getRandom();
+  return [num, ifEvenNumber(num)];
 };
 
-export default ifEvenGame;
+export default () => engine(instruction, generateRound);

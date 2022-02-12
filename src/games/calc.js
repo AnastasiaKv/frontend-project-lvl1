@@ -1,4 +1,5 @@
-import * as game from '../index.js';
+import getRandom from '../helpers.js';
+import engaine from '../index.js';
 
 const instruction = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
@@ -6,9 +7,9 @@ const maxOperand1 = 10;
 const maxOperand2 = 20;
 
 const createExpression = () => [
-  game.random(maxOperand1),
-  game.random(maxOperand2),
-  operators[game.random(operators.length - 1)],
+  getRandom(maxOperand1),
+  getRandom(maxOperand2),
+  operators[getRandom(operators.length - 1)],
 ];
 const calcExpression = (ex) => {
   const [a, b, operator] = [...ex];
@@ -24,16 +25,9 @@ const expressionToString = (ex) => {
   return `${a} ${operator} ${b}`;
 };
 
-const calcGame = (userName) => {
-  let score = 0;
-  game.init(instruction);
-
-  do {
-    const ex = createExpression();
-    score = game.round(expressionToString(ex), calcExpression(ex), score);
-  } while (game.checkScore(score));
-
-  game.finish(score, userName);
+const generateRound = () => {
+  const ex = createExpression();
+  return [expressionToString(ex), calcExpression(ex)];
 };
 
-export default calcGame;
+export default () => engaine(instruction, generateRound);
