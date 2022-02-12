@@ -1,35 +1,23 @@
 import readlineSync from 'readline-sync';
+import greeting from './cli.js';
 
-const maxScore = 3;
+const engine = (description, getRound) => {
+  const userName = greeting();
+  console.log(description);
+  const roundsCount = 3;
 
-const init = (instruction) => {
-  console.log(instruction);
-};
-
-const round = (question, answer, score) => {
-  console.log(`Question: ${question}`);
-  const usersAnswer = readlineSync.question('Your answer: ');
-  if (usersAnswer === answer.toString()) {
+  for (let i = 0; i < roundsCount; i += 1) {
+    const [question, answer] = getRound();
+    console.log(`Question: ${question}`);
+    const usersAnswer = readlineSync.question('Your answer: ');
+    if (usersAnswer !== answer.toString()) {
+      console.log(`'${usersAnswer}' is wrong answer ;(. Correct answer was '${answer}'. Let's try again, ${userName}!`);
+      return;
+    }
     console.log('Correct!');
-    return score + 1;
   }
-  console.log(`'${usersAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
-  return 0;
+
+  console.log(`Congratulations, ${userName}!`);
 };
 
-const finish = (score, name) => {
-  const msg = !score ? "Let's try again" : 'Congratulations';
-  console.log(`${msg}${name ? `, ${name}` : ''}!`);
-};
-
-const checkScore = (score) => score && score < maxScore;
-
-const random = (max = 100, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-export {
-  init,
-  round,
-  finish,
-  checkScore,
-  random,
-};
+export default engine;
