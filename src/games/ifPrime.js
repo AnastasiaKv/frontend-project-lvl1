@@ -12,8 +12,10 @@ const ifPrime = (x) => {
 };
 
 const generateRound = () => {
-  const num = getRandom();
-  return [num, ifPrime(num) ? 'yes' : 'no'];
+  const question = getRandom();
+  const answer = ifPrime(question) ? 'yes' : 'no';
+
+  return [question, answer];
 };
 
 export default () => engine(instruction, generateRound);

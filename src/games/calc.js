@@ -3,31 +3,25 @@ import engaine from '../index.js';
 
 const instruction = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
-const maxOperand1 = 10;
-const maxOperand2 = 20;
 
-const createExpression = () => [
-  getRandom(maxOperand1),
-  getRandom(maxOperand2),
-  operators[getRandom(operators.length - 1)],
-];
-const calcExpression = (ex) => {
-  const [a, b, operator] = [...ex];
+const calculate = (operand1, operand2, operator) => {
   switch (operator) {
-    case '+': return a + b;
-    case '-': return a - b;
-    case '*': return a * b;
-    default: return null;
+    case '+': return operand1 + operand2;
+    case '-': return operand1 - operand2;
+    case '*': return operand1 * operand2;
+    default: throw new Error('Unsupported operator');
   }
-};
-const expressionToString = (ex) => {
-  const [a, b, operator] = [...ex];
-  return `${a} ${operator} ${b}`;
 };
 
 const generateRound = () => {
-  const ex = createExpression();
-  return [expressionToString(ex), calcExpression(ex)];
+  const num1 = getRandom(10);
+  const num2 = getRandom(20);
+  const operator = operators[getRandom(operators.length - 1)];
+
+  const question = `${num1} ${operator} ${num2}`;
+  const answer = String(calculate(num1, num2, operator));
+
+  return [question, answer];
 };
 
 export default () => engaine(instruction, generateRound);

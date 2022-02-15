@@ -2,31 +2,29 @@ import engine from '../index.js';
 import getRandom from '../helpers.js';
 
 const instruction = 'What number is missing in the progression?';
-const maxLength = 10;
-const minLength = 5;
+const progressionLength = 10;
 
-const createProgression = () => {
-  const length = getRandom(maxLength, minLength);
-  const diff = getRandom(maxLength, 1);
-  const p = [getRandom()];
-  for (let i = 1; i < length; i += 1) {
-    p[i] = p[i - 1] + diff;
+const generateProgression = (startNum, step) => {
+  const resultProgression = [];
+  for (let i = 0; i < progressionLength; i += 1) {
+    resultProgression.push(startNum + i * step);
   }
-  return p;
-};
-const getProgressionElement = (p) => p[getRandom(p.length - 1)];
-const progressionWithGapToString = (p, gap) => {
-  let res = '';
-  for (let i = 0; i < p.length; i += 1) {
-    res += `${p[i] === gap ? '..' : p[i]} `;
-  }
-  return res;
+  return resultProgression;
 };
 
 const generateRound = () => {
-  const progression = createProgression();
-  const hiddenEl = getProgressionElement(progression);
-  return [progressionWithGapToString(progression, hiddenEl), hiddenEl];
+  const firstEl = getRandom();
+  const step = getRandom(30, 1);
+  const progression = generateProgression(firstEl, step);
+  const randomIndex = getRandom(progressionLength - 1);
+
+  const answer = String(progression[randomIndex]);
+  let question = '';
+  for (let i = 0; i < progressionLength; i += 1) {
+    question += i !== randomIndex ? `${progression[i]} ` : '.. ';
+  }
+
+  return [question, answer];
 };
 
 export default () => engine(instruction, generateRound);

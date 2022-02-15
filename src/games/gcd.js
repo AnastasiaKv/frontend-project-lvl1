@@ -2,16 +2,17 @@ import engaine from '../index.js';
 import getRandom from '../helpers.js';
 
 const instruction = 'Find the greatest common divisor of given numbers.';
-const maxNumber1 = 30;
-const maxNumber2 = 100;
 
-const getNumbers = () => [getRandom(maxNumber1), getRandom(maxNumber2)];
-const numbersToString = (nums) => `${nums[0]} ${nums[1]}`;
-const findGSD = (a, b) => (!b ? a : findGSD(b, a % b));
+const gsd = (a, b) => (!b ? a : gsd(b, a % b));
 
 const generateRound = () => {
-  const nums = getNumbers();
-  return [numbersToString(nums), findGSD(...nums)];
+  const num1 = getRandom(30);
+  const num2 = getRandom(100);
+
+  const question = `${num1} ${num2}`;
+  const answer = String(gsd(num1, num2));
+
+  return [question, answer];
 };
 
 export default () => engaine(instruction, generateRound);
