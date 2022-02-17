@@ -1,10 +1,11 @@
 import readlineSync from 'readline-sync';
 import greeting from './cli.js';
 
+const roundsCount = 3;
+
 const engine = (description, getRound) => {
   const userName = greeting();
   console.log(description);
-  const roundsCount = 3;
 
   for (let i = 0; i < roundsCount; i += 1) {
     const [question, answer] = getRound();
