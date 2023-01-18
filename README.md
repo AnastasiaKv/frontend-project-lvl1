@@ -6,7 +6,7 @@
 [![Actions Status](https://github.com/AnastasiaKv/frontend-project-lvl1/workflows/linter-check/badge.svg)](https://github.com/AnastasiaKv/frontend-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a2bad59061358c6576b0/maintainability)](https://codeclimate.com/github/AnastasiaKv/frontend-project-lvl1/maintainability)
 
-#### It is a set of five simple mathematical console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again.
+#### This is a set of five simple mathematical console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again.
 ### Games:
 * Calculator. Arithmetic expressions to be evaluated.
 * Progression. Search for missing numbers in a sequence of numbers.
